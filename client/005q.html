@@ -1,0 +1,113 @@
+<head>
+  <title>005q</title>
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  {{> app}}
+</body>
+
+<template name="app">
+  {{> nav}}
+  {{#if currentUser}}
+    {{> staff}}
+  {{else}}
+    {{> student}}
+  {{/if}}
+</template>
+
+<template name="nav">
+  <div class="ui purple inverted menu">
+    <a class="item">
+      <div class="">
+        005q
+      </div>
+    </a>
+    <div class="right menu">
+      {{#if currentUser}}
+        <a class="logout item">
+          Sign Out
+        </a>
+      {{else}}
+        <a class="login item">
+          Staff Login
+        </a>
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="student">
+  <div id="login" class="ui page dimmer">
+    <div class="content">
+      <div class="center">
+        <div class="ui input">
+          <input type="password" placeholder="password">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="centered title">
+    005q
+    <div class="centered subtitle">
+      There are {{ qlength }} people in the queue!
+    </div>
+  </div>
+  <div class="centered container">
+    <div id="help" class="content">
+      My name is
+      <div class="ui inline input">
+        <input id="name" type="text" placeholder="name">
+      </div>
+      and I need help with
+      <div class="ui inline input">
+        <input id="topic" type="text" placeholder="something!">
+      </div>
+    </div>
+    <br>
+    <div class="ui huge purple disabled help button">
+      Help me!
+    </div>
+  </div>
+  <div id="student-queue" class="centered">
+    <div class="queue title">
+      Currently in the queue:
+    </div>
+    {{#each students}}
+    <div class="{{#if beingHelped}} blink {{/if}} item">{{name}}</div>
+    {{/each}}
+  </div>
+</template>
+
+<template name="staff">
+  <div id="staff-queue" class="centered">
+    <div class="queue title">
+      Currently in the queue:
+    </div>
+      {{#each students}}
+        {{> queueItem}}
+      {{/each}}
+  </div>
+</template>
+
+<template name="queueItem">
+  <div class="staff queue item">
+    <div class="ui top attached segment {{beingHelped}}">
+      {{name}} needs help with
+      {{#if topic}}
+        {{topic}}
+      {{else}}
+        something
+      {{/if}}
+    </div>
+    <div class="ui bottom attached segment">
+      <div class="ui green help button">
+        Help this person!
+      </div>
+      <div class="ui red remove button">
+        Remove
+      </div>
+    </div>
+  </div>
+</template>

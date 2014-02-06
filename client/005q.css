@@ -1,0 +1,119 @@
+body
+{
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  background: #f5f5f5;
+  margin: 0;
+}
+
+.ui.menu {
+  border-radius: 0px !important;
+}
+
+.ui.button {
+  font-weight: 400 !important;
+}
+
+.purple.help.button {
+  width: 300px;
+}
+
+.title {
+  font-size: 8em;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.queue.title {
+  font-size: 2.5em;
+  margin-bottom: 8px;
+}
+
+#student-queue {
+  margin-top: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: #615b9b;
+  color: #f5f5f5;
+}
+
+#student-queue .item {
+  font-size: 2em;
+}
+
+.title .subtitle {
+  font-size: .2em;
+}
+
+#student-queue.list {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.centered {
+  text-align: center;
+}
+
+#help
+{
+  font-size: 2.3em;
+}
+
+#help input,
+#login input
+{
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  font-size: 2.3em;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid black;
+  background: transparent;
+}
+
+#login input
+{
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.staff.queue.item {
+  width: 50vw;
+  min-width: 320px;
+  margin: 8px auto;
+  font-size: 1.5em;
+}
+
+.staff.queue .segment{
+  border-radius: 0 !important;
+}
+
+.staff.queue .bottom.segment{
+  padding: 8px;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity:1;
+  }
+  50% {
+    opacity:.7;
+  }
+  100% {
+    opacity:1;
+  }
+}
+.blink {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+
+  -webkit-animation-direction: normal;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: blink;
+  -webkit-animation-timing-function: ease-in-out;
+}
