@@ -6,7 +6,7 @@ Template.student.events({
       $loginInput.val("");
     }
   },
-  'click .help.button': function (event) {
+  'click .help.button': function () {
     var $nameInput = $('#name'),
       $topicInput = $('#topic');
     if (!$('.help.button').hasClass("disabled")) {
@@ -15,10 +15,9 @@ Template.student.events({
       $topicInput.val("");
     }
   },
-  'keyup #name, #topic': function (event) {
+  'keyup #name, #topic': function () {
     var $nameInput = $('#name'),
-      $topicInput = $('#topic'),
-      $helpButton = $('.help.button');
+        $helpButton = $('.help.button');
     if ($nameInput.val()) {
       $helpButton.removeClass("disabled");
     } else {

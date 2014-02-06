@@ -19,14 +19,14 @@ Meteor.methods({
 });
 
 Students.allow({
-  insert: function (userId, doc) {
+  insert: function () {
     // Don't fuck with the console, yo
     return false;
   },
-  update: function (userId, doc) {
+  update: function () {
     return Meteor.user().username == "staff";
   },
-  remove: function (userId, doc) {
+  remove: function () {
     return Meteor.user().username == "staff";
   }
 });
