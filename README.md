@@ -6,3 +6,5 @@
 Students post their name and what they need help with.
 
 Staff log in to mark students receiving help, and can remove them from the queue.
+
+Built using Meteor, MongoDB, Semantic-UI, JQuery
