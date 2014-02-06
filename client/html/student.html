@@ -1,0 +1,41 @@
+<template name="student">
+  <div id="login" class="ui page dimmer">
+    <div class="content">
+      <div class="center">
+        <div class="ui input">
+          <input type="password" placeholder="password">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="centered title">
+    005q
+    <div class="centered subtitle">
+      There are {{ qlength }} people in the queue!
+    </div>
+  </div>
+  <div class="centered container">
+    <div id="help" class="content">
+      My name is
+      <div class="ui inline input">
+        <input id="name" type="text" placeholder="name">
+      </div>
+      and I need help with
+      <div class="ui inline input">
+        <input id="topic" type="text" placeholder="something!">
+      </div>
+    </div>
+    <br>
+    <div class="ui huge purple disabled help button">
+      Help me!
+    </div>
+  </div>
+  <div id="student-queue" class="centered">
+    <div class="queue title">
+      Currently in the queue:
+    </div>
+    {{#each students}}
+    <div class="{{#if beingHelped}} blink {{/if}} item">{{name}}</div>
+    {{/each}}
+  </div>
+</template>

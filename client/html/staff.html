@@ -1,0 +1,31 @@
+<template name="staff">
+  <div id="staff-queue" class="centered">
+    <div class="queue title">
+      Currently in the queue:
+    </div>
+    {{#each students}}
+      {{> queueItem}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="queueItem">
+  <div class="staff queue item">
+    <div class="ui top attached segment {{beingHelped}}">
+      {{name}} needs help with
+      {{#if topic}}
+      {{topic}}
+      {{else}}
+      something
+      {{/if}}
+    </div>
+    <div class="ui bottom attached segment">
+      <div class="ui green help button">
+        Help this person!
+      </div>
+      <div class="ui red remove button">
+        Remove
+      </div>
+    </div>
+  </div>
+</template>

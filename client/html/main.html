@@ -1,0 +1,39 @@
+<head>
+  <title>005q</title>
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  {{> app}}
+</body>
+
+<template name="app">
+  {{> nav}}
+  {{#if currentUser}}
+    {{> staff}}
+  {{else}}
+    {{> student}}
+  {{/if}}
+</template>
+
+<template name="nav">
+  <div class="ui purple inverted menu">
+    <a class="item">
+      <div class="">
+        005q
+      </div>
+    </a>
+    <div class="right menu">
+      {{#if currentUser}}
+        <a class="logout item">
+          Sign Out
+        </a>
+      {{else}}
+        <a class="login item">
+          Staff Login
+        </a>
+      {{/if}}
+    </div>
+  </div>
+</template>
