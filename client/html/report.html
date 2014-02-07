@@ -14,7 +14,7 @@
     <div class="day title">
       {{day}}
     </div>
-    <div>{{students.length}} help requests made and resolved today! </div>
+    <div>{{requests}} made and resolved today! </div>
     {{#each hours}}
     {{> hour}}
     {{/each}}
@@ -43,6 +43,6 @@
 
 <template name="hour">
   <div class="hour">
-    {{hour}} : {{students.length}} requests.
+    {{hour}} : {{requests}} needed help.
   </div>
 </template>

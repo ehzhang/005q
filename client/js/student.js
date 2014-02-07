@@ -28,8 +28,9 @@ Template.student.events({
   }
 });
 
-Template.student.qlength = function () {
-  return Students.find({active: true}).count();
+Template.student.people = function () {
+  var count = Students.find({active: true}).count();
+  return (count == 1 ? "is " : "are ") + count + " " + (count == 1 ? "person" : "people");
 };
 
 Template.student.students = function () {

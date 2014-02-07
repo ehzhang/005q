@@ -17,6 +17,11 @@ Template.report.days = function () {
   return days;
 };
 
+Template.day.requests = function () {
+  var count = this.students.length;
+  return count + " " + (count == 1 ? "request" : "requests")
+}
+
 Template.day.hours = function () {
   var students = this.students,
       hours = [];
@@ -41,3 +46,8 @@ Template.reportItem.events({
     Students.remove(this._id);
   }
 })
+
+Template.hour.requests = function () {
+  var count = this.students.length;
+  return count + " " + (count == 1 ? "person" : "people");
+}
