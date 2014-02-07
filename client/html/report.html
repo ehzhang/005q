@@ -16,33 +16,35 @@
     </div>
     <div>{{requests}} made and resolved today! </div>
     {{#each hours}}
-    {{> hour}}
+      {{> hour}}
     {{/each}}
-    {{#if false}}
-    <div class="ui basic fluid accordion">
-      <div class="title">
-        <i class="dropdown icon"></i>
-          Full Report
-      </div>
-      <div class="content">
-        {{#each students}}
-          {{> reportItem}}
-        {{/each}}
-      </div>
-    </div>
-    {{/if}}
-  </div>
-</template>
-
-<template name="reportItem">
-  <div class="reportItem">
-    {{name}} needed help with {{topic}}
-    <i class="red remove link icon"></i>
   </div>
 </template>
 
 <template name="hour">
   <div class="hour">
-    {{hour}} : {{requests}} needed help.
+    {{hour}} : {{students.length}} needed help.
   </div>
+  <table class="ui left aligned table segment">
+    <thead>
+    <tr><th>Name</th>
+      <th>Topic</th>
+      <th>Notes</th>
+      <th></th>
+    </tr></thead>
+    <tbody>
+    {{#each students}}
+      {{> reportRow}}
+    {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="reportRow">
+  <tr>
+    <td>{{name}}</td>
+    <td>{{topic}}</td>
+    <td>{{notes}}</td>
+    <td class="right aligned"><i class="red remove circle link icon"></i></td>
+  </tr>
 </template>

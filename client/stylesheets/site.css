@@ -6,6 +6,16 @@ body
   margin: 0;
 }
 
+textarea,
+.day .table
+{
+  font-family: 'Raleway', sans-serif;
+}
+
+.right.aligned {
+  text-align: right;
+}
+
 .ui.menu {
   border-radius: 0px !important;
 }
@@ -72,16 +82,25 @@ body
 }
 
 #help input,
-#login input
-{
+#login input {
   font-family: 'Oswald', sans-serif;
   text-align: center;
   font-size: 2.3em;
   padding: 0;
   border: none;
-  border-radius: 0;
+  border-radius: 0 !important;
   border-bottom: 2px solid black;
   background: transparent;
+}
+
+textarea[type=notes] {
+  border-radius: 0 !important;
+  font-size: .6em !important;
+  height: 100px !important;
+}
+
+.notes .field {
+  margin: 0 !important;
 }
 
 #login input
@@ -121,7 +140,7 @@ body
 .day.segment {
   min-width: 320px;
   width: 60vw;
-  margin: 8px auto;
+  margin: 16px auto;
 }
 
 .hour {

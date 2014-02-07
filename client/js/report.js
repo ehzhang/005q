@@ -41,11 +41,11 @@ Template.day.rendered = function () {
   $('.ui.accordion').accordion();
 }
 
-Template.reportItem.events({
+Template.reportRow.events({
   'click .remove.icon': function () {
     Students.remove(this._id);
   }
-})
+});
 
 Template.hour.requests = function () {
   var count = this.students.length;

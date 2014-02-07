@@ -18,20 +18,28 @@ Template.queueItem.destroyed = function () {
 };
 
 Template.queueItem.events({
-  'click .checkoff.button': function () {
+  'click .checkoff.button': function (event) {
+    var notes = $(event.target).parent().find('textarea[type=notes]').val();
     Students.update(this._id,
       {
-        $set: { active: false }
+        $set:
+        {
+          active: false,
+          notes: notes
+        }
       });
+    return false;
   },
   'click .remove.icon': function () {
     Students.remove(this._id);
+    return false;
   },
   'click .help.button': function () {
     Students.update(this._id,
       {
         $set: { beingHelped: true }
       })
+    return false;
   }
 });
 
