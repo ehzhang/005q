@@ -8,11 +8,13 @@ Template.student.events({
   },
   'click .help.button': function () {
     var $nameInput = $('#name'),
-      $topicInput = $('#topic');
+        $topicInput = $('#topic'),
+        $locInput = $('#location');
     if (!$('.help.button').hasClass("disabled")) {
-      Meteor.call("addStudent", $nameInput.val(), $topicInput.val());
+      Meteor.call("addStudent", $nameInput.val(), $topicInput.val(), $locInput.val());
       $nameInput.val("");
       $topicInput.val("");
+      $locInput.val("");
     }
   },
   'keyup #name, #topic': function () {

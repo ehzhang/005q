@@ -5,11 +5,12 @@ Accounts.config({
 });
 
 Meteor.methods({
-  addStudent: function (name, topic) {
+  addStudent: function (name, topic, loc) {
     Students.insert(
       {
         name: name,
         topic: topic,
+        location: loc,
         time: new Date()
       })
   },
