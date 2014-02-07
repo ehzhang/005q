@@ -101,8 +101,9 @@ body
   color: #828282;
 }
 
-.top.right.label {
+.top.right.remove.label {
   border-top-right-radius: 0 !important;
+  background-color: transparent !important;
 }
 
 .staff .remove.icon {
