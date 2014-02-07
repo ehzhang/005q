@@ -1,0 +1,48 @@
+<template name="report">
+  <div class="centered">
+    <div class="report title">
+      Staff Reports
+    </div>
+    {{#each days}}
+      {{> day}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="day">
+  <div class="ui day segment">
+    <div class="day title">
+      {{day}}
+    </div>
+    <div>{{students.length}} help requests made and confirmed today! </div>
+    {{#each hours}}
+    {{> hour}}
+    {{/each}}
+    {{#if false}}
+    <div class="ui basic fluid accordion">
+      <div class="title">
+        <i class="dropdown icon"></i>
+          Full Report
+      </div>
+      <div class="content">
+        {{#each students}}
+          {{> reportItem}}
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</template>
+
+<template name="reportItem">
+  <div class="reportItem">
+    {{name}} needed help with {{topic}}
+    <i class="red remove link icon"></i>
+  </div>
+</template>
+
+<template name="hour">
+  <div class="hour">
+    {{hour}} : {{students.length}} requests.
+  </div>
+</template>

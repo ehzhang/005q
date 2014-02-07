@@ -18,11 +18,22 @@ body
   width: 300px;
 }
 
-.title {
+.student.title {
   font-size: 8em;
   margin-top: 20px;
   margin-bottom: 50px;
 }
+
+.report.title {
+  font-size: 5em;
+  margin-bottom: 16px;
+}
+
+.day.title {
+  font-size: 3em;
+  margin-bottom: 0px;
+}
+
 
 .queue.title {
   font-size: 2.5em;
@@ -86,12 +97,34 @@ body
   font-size: 1.5em;
 }
 
-.staff.queue .segment{
+.location {
+  color: #828282;
+}
+
+.top.right.label {
+  border-top-right-radius: 0 !important;
+}
+
+.staff .remove.icon {
+  margin: 0;
+}
+
+.segment {
   border-radius: 0 !important;
 }
 
-.staff.queue .bottom.segment{
+.bottom.segment {
   padding: 8px;
+}
+
+.day.segment {
+  min-width: 320px;
+  width: 60vw;
+  margin: 8px auto;
+}
+
+.hour {
+  font-size: 2em;
 }
 
 @-webkit-keyframes blink {

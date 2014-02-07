@@ -29,9 +29,9 @@ Template.student.events({
 });
 
 Template.student.qlength = function () {
-  return Students.find({}).count();
+  return Students.find({active: true}).count();
 };
 
 Template.student.students = function () {
-  return Students.find({}, {sort: {time: 1}});
+  return Students.find({active: true}, {sort: {time: 1}});
 };

@@ -11,7 +11,11 @@
 <template name="app">
   {{> nav}}
   {{#if currentUser}}
-    {{> staff}}
+    {{#if page "report"}}
+      {{> report}}
+    {{else}}
+      {{> staff}}
+    {{/if}}
   {{else}}
     {{> student}}
   {{/if}}
@@ -26,6 +30,12 @@
     </a>
     <div class="right menu">
       {{#if currentUser}}
+        <a class="report item">
+          Reports
+        </a>
+        <a class="queue item">
+          Queue
+        </a>
         <a class="logout item">
           Sign Out
         </a>

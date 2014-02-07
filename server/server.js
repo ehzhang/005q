@@ -11,6 +11,7 @@ Meteor.methods({
         name: name,
         topic: topic,
         location: loc,
+        active: true,
         time: new Date()
       })
   },

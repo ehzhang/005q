@@ -3,30 +3,45 @@
     <div class="queue title">
       Currently in the queue:
     </div>
-    {{#each students}}
-      {{> queueItem}}
-    {{/each}}
+    {{#if students}}
+      {{#each students}}
+        {{> queueItem}}
+      {{/each}}
+    {{else}}
+      nobody :)
+    {{/if}}
   </div>
 </template>
 
 <template name="queueItem">
   <div class="staff queue item">
     <div class="ui top attached segment {{beingHelped}}">
+      <div class="ui top right red attached label">
+        <i class="link large remove icon"></i>
+      </div>
       {{name}} needs help with
       {{#if topic}}
-      {{topic}}
+        {{topic}}
       {{else}}
-      something
+        something
       {{/if}}
-      ({{location}})
-    </div>
-    <div class="ui bottom attached segment">
-      <div class="ui green help button">
-        Help this person!
+      <br>
+      <div class="location">
+        {{#if location}}
+        ({{location}})
+        {{else}}
+        (somewhere)
+        {{/if}}
       </div>
-      <div class="ui red remove button">
-        Remove
-      </div>
     </div>
+    {{#if beingHelped}}
+    <div class="ui green checkoff bottom attached fluid button">
+      Checkoff
+    </div>
+    {{else}}
+    <div class="ui green help bottom attached fluid button">
+      Help this person!
+    </div>
+    {{/if}}
   </div>
 </template>
