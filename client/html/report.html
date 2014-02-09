@@ -14,7 +14,9 @@
     <div class="day title">
       {{day}}
     </div>
-    <div>{{requests}} made and resolved today! </div>
+    <div>
+      {{totalRequests}} made and resolved today!
+    </div>
     {{#each hours}}
       {{> hour}}
     {{/each}}
@@ -23,7 +25,7 @@
 
 <template name="hour">
   <div class="hour">
-    {{hour}} : {{students.length}} needed help.
+    {{hour}} : {{totalRequests}} needed help.
   </div>
   <table class="ui left aligned table segment">
     <thead>
@@ -33,7 +35,7 @@
       <th></th>
     </tr></thead>
     <tbody>
-    {{#each students}}
+    {{#each requests}}
       {{> reportRow}}
     {{/each}}
     </tbody>
@@ -45,6 +47,6 @@
     <td>{{name}}</td>
     <td>{{topic}}</td>
     <td>{{notes}}</td>
-    <td class="right aligned"><i class="red remove circle link icon"></i></td>
+    <td class="right aligned"><i class="red remove sign link icon"></i></td>
   </tr>
 </template>

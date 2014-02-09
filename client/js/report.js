@@ -1,53 +1,68 @@
-/**
- * Get a list of documents organized by day.
- * @returns {*|Cursor|219|1103|79|590}
- */
+//groupSortedByTime = function (data, groupFunc, name) {
+//  var groups = [];
+//
+//  // Group the sorted data.
+//  for(var i = 0; i < data.length; i++) {
+//    var group = groupFunc(data[i]);
+//    if (groups.length > 0 &&
+//        groups[groups.length - 1].group == group) {
+//      // Add the data to the group array!
+//      groups[groups.length - 1].getPropertyValue(name).push(data[i]);
+//    } else {
+//      groups.push({group: group, requests: [requests[i]]});
+//    }
+//  }
+//  return days;
+//}
+
+// Return an array of Objects that represent groups by day.
 Template.report.days = function () {
-  var students = Students.find({active: false}, {sort: {time: -1}}).fetch(),
+  var requests = Requests.find({active: false}, {sort: {time: -1}}).fetch(),
       days = [];
 
-  for(var i = 0; i < students.length; i++) {
-    var day = students[i].time.toDateString();
+  // Group the sorted data.
+  for(var i = 0; i < requests.length; i++) {
+    var day = requests[i].time.toDateString();
     if (days.length > 0 && days[days.length - 1].day == day) {
-      days[days.length - 1].students.push(students[i]);
+      days[days.length - 1].requests.push(requests[i]);
     } else {
-      days.push({day: day, students: [students[i]]});
+      days.push({day: day, requests: [requests[i]]});
     }
   }
   return days;
 };
 
-Template.day.requests = function () {
-  var count = this.students.length;
+// Return the total number of requests for a day.
+Template.day.totalRequests = function () {
+  var count = this.requests.length;
   return count + " " + (count == 1 ? "request" : "requests")
 }
 
+// Returns an array of Objects that represent groups by hour.
 Template.day.hours = function () {
-  var students = this.students,
+  var requests = this.requests,
       hours = [];
-  for(var i = 0; i < students.length; i++) {
-    var hour = students[i].time.getHours();
+  for(var i = 0; i < requests.length; i++) {
+    var hour = requests[i].time.getHours();
     hour = hour < 12 ? hour + " AM" : hour % 12 + " PM";
     if (hours.length > 0 && hours[hours.length - 1].hour == hour) {
-      hours[hours.length - 1].students.push(students[i]);
+      hours[hours.length - 1].requests.push(requests[i]);
     } else {
-      hours.push({hour: hour, students: [students[i]]});
+      hours.push({hour: hour, requests: [requests[i]]});
     }
   }
   return hours;
 };
 
-Template.day.rendered = function () {
-  $('.ui.accordion').accordion();
-}
-
+// Allow one to selectively remove data in the reoprt section.
 Template.reportRow.events({
   'click .remove.icon': function () {
-    Students.remove(this._id);
+    Requests.remove(this._id);
   }
 });
 
-Template.hour.requests = function () {
-  var count = this.students.length;
+// Return the total requests per hour.
+Template.hour.totalRequests = function () {
+  var count = this.requests.length;
   return count + " " + (count == 1 ? "person" : "people");
 }
