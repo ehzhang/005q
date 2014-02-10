@@ -54,5 +54,5 @@ Template.queueItem.events({
 
 // CSS classes. If being helped, cause it to blink purple!
 Template.queueItem.beingHelped = function () {
-  return this.beingHelped ? "inverted purple blink" : false;
+  return this.beingHelped ? "inverted orange blink" : false;
 };
