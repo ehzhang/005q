@@ -1,3 +1,13 @@
+// Update the title to show how many active requests in the queue.
+Deps.autorun(function () {
+  var activeCount = Requests.find({active: true}).count();
+  if (activeCount > 0) {
+    document.title = "(" + activeCount + ") 005q" ;
+  } else {
+    document.title = "005q"
+  }
+});
+
 // Return the active requests for the staff to see!
 Template.staff.requests = function () {
   if (Requests.find({active: true}).count() > 0) {
