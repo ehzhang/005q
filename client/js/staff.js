@@ -17,6 +17,10 @@ Template.staff.requests = function () {
   }
 };
 
+Template.queueItem.time = function () {
+  return this.time.toLocaleTimeString();
+};
+
 // When the queueItem is rendered
 Template.queueItem.rendered = function () {
   // On the first time, transition up!
