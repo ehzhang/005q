@@ -1,0 +1,15 @@
+var STAFF_USERNAME = 'staff';
+var STAFF_PASSWORD = 'foobar';
+
+var STAFF_ACCOUNT = Meteor.users.findOne({username: 'staff'});
+
+if(!STAFF_ACCOUNT){
+  // Create a staff account
+  Accounts.createUser({
+    username: STAFF_USERNAME,
+    password: STAFF_PASSWORD
+  });
+} else {
+  // Update the password to the one in the config
+  Accounts.setPassword(STAFF_ACCOUNT._id, STAFF_PASSWORD);
+}
