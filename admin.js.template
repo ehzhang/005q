@@ -1,4 +1,4 @@
-var STAFF_USERNAME = 'staff';
+var STAFF_USERNAME = 'staff'; // Don't change!
 var STAFF_PASSWORD = 'foobar';
 
 var STAFF_ACCOUNT = Meteor.users.findOne({username: 'staff'});
